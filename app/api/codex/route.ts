@@ -72,4 +72,3 @@ export async function POST(req: NextRequest) {
     }
   }
 }
-/api/codex/route.ts
