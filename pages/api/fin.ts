@@ -1,0 +1,1 @@
+// FinSynapse API endpoint handler
