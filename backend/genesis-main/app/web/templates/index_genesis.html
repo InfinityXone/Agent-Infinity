@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/genesis_style.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='/infinity_icon.png') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="genesis-header">
+            <div class="logo-container">
+                <h1 class="genesis-logo">
+                    Infinity <span class="x-symbol">X</span> One
+                </h1>
+                <p class="genesis-subtitle">{{ subtitle }}</p>
+            </div>
+            <div class="status-indicators">
+                <div id="backend-status" class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Connecting...</span>
+                </div>
+                <div id="genesis-status" class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">GENESIS™ System</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="genesis-main">
+            <div class="workspace">
+                <!-- AI Thinking Process Panel -->
+                <div class="thinking-panel">
+                    <div class="panel-header">
+                        <h2>🧠 AI Thinking Process</h2>
+                        <div class="agent-indicators">
+                            <div class="agent-indicator" data-agent="agent-0">
+                                <span class="agent-dot"></span>
+                                <span class="agent-name">Agent 0</span>
+                            </div>
+                            <div class="agent-indicator" data-agent="finsynapse">
+                                <span class="agent-dot"></span>
+                                <span class="agent-name">FinSynapse</span>
+                            </div>
+                            <div class="agent-indicator" data-agent="codex-healer">
+                                <span class="agent-dot"></span>
+                                <span class="agent-name">Codex Healer</span>
+                            </div>
+                            <div class="agent-indicator" data-agent="scraper-daemon">
+                                <span class="agent-dot"></span>
+                                <span class="agent-name">ScraperDaemon</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="thinking-steps" class="thinking-steps">
+                        <div class="thinking-placeholder">
+                            <p>🤖 Genesis AI agents ready for coordination...</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill"></div>
+                        </div>
+                        <div id="progress-text" class="progress-text">Ready</div>
+                    </div>
+                </div>
+
+                <!-- Chat Interface Panel -->
+                <div class="chat-panel">
+                    <div class="panel-header">
+                        <h2>💬 Genesis AI Chat</h2>
+                        <div class="chat-controls">
+                            <button id="start-genesis-btn" class="genesis-btn">
+                                🚀 Start GENESIS™
+                            </button>
+                            <button id="clear-chat-btn" class="secondary-btn">
+                                Clear Chat
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="chat-messages" class="chat-messages">
+                        <div class="welcome-message">
+                            <div class="message ai-message">
+                                <div class="message-header">
+                                    <span class="sender">🤖 Agent 0 - Master Coordinator</span>
+                                    <span class="timestamp">{{ "now" }}</span>
+                                </div>
+                                <div class="message-content">
+                                    Welcome to Infinity X One - GENESIS™! I am Agent 0, your autonomous AI coordinator. 
+                                    I command a swarm of specialized agents including FinSynapse (financial predictions), 
+                                    ScraperDaemon (intelligence gathering), and Codex Healer (self-repair systems).
+                                    <br><br>
+                                    How may I assist you with autonomous AI coordination today?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-area">
+                        <div class="input-container">
+                            <textarea 
+                                id="user-input" 
+                                placeholder="Ask Genesis AI anything... (Financial predictions, market analysis, autonomous coordination)"
+                                rows="3"
+                            ></textarea>
+                            <div class="input-actions">
+                                <button id="send-btn" class="primary-btn">
+                                    <span class="btn-text">Send</span>
+                                    <span class="btn-icon">⚡</span>
+                                </button>
+                                <button id="stop-btn" class="stop-btn" style="display: none;">
+                                    <span class="btn-text">Stop</span>
+                                    <span class="btn-icon">⏹️</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Files and Logs Panel -->
+            <div class="bottom-panel">
+                <div class="files-section">
+                    <div class="section-header">
+                        <h3>📁 Generated Files</h3>
+                        <button id="refresh-files-btn" class="refresh-btn">🔄</button>
+                    </div>
+                    <div id="files-list" class="files-list">
+                        <div class="files-placeholder">
+                            <p>No files generated yet. Start a conversation to see AI-generated content.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logs-section">
+                    <div class="section-header">
+                        <h3>📋 System Logs</h3>
+                        <div class="logs-controls">
+                            <button id="toggle-logs-btn" class="toggle-btn">Expand</button>
+                            <button id="clear-logs-btn" class="clear-btn">Clear</button>
+                        </div>
+                    </div>
+                    <div id="logs-content" class="logs-content collapsed">
+                        <div class="logs-placeholder">
+                            <p>System logs will appear here during AI processing...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- File Viewer Modal -->
+        <div id="file-viewer-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="file-viewer-title">File Content</h3>
+                    <button id="close-file-viewer" class="close-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <pre id="file-content" class="file-content"></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Genesis AI agents coordinating...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', path='/genesis_app.js') }}"></script>
+    <script>
+        // Initialize with backend URL
+        window.GENESIS_BACKEND_URL = "{{ backend_url }}";
+        window.GENESIS_CONFIG = {
+            title: "{{ title }}",
+            subtitle: "{{ subtitle }}",
+            features: {{ features | tojson }},
+            theme: {{ theme | tojson }}
+        };
+        
+        // Start the app
+        document.addEventListener('DOMContentLoaded', function() {
+            GenesisApp.init();
+        });
+    </script>
+</body>
+</html>
+

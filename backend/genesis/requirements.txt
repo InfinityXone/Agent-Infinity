@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+langchain
+openai
+supabase-py
+dotenv
