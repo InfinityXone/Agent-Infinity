@@ -1,0 +1,54 @@
+# 🔒 Infinity X One System GitIgnore [Auto-Optimized]
+
+# Node modules / builds
+node_modules/
+.next/
+dist/
+build/
+out/
+
+# System logs / temp / cache
+logs/
+*.log
+*.tmp
+.DS_Store
+.vscode/
+__pycache__/
+*.pyc
+*.pyo
+
+# PowerShell & Python cache
+*.pshistory
+*.pkl
+*.sqlite3
+*.db
+*.lock
+.env
+.env.*
+
+# AI memory & output files
+memory/
+records/
+evolve.log
+evolved_ai_output.txt
+
+# OS-specific
+Thumbs.db
+ehthumbs.db
+*.bak
+*.swp
+
+# Git & Vercel config
+.vercel/
+.git/
+.gitignore.bak
+vercel.json
+
+# IDE files
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+
+# Ignore all backups or iterations
+EVO_*
+phase_*

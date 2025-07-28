@@ -1,0 +1,22 @@
+{
+    "Codex": {
+        "assist": "CodexBuilderBot",
+        "shadow": "CodexObserverBot",
+        "healer": "HealerBot"
+    },
+    "FinSynapse": {
+        "assist": "StrategyScorer",
+        "shadow": "FinSynapseShadowBot",
+        "healer": "HealerBot"
+    },
+    "Echo": {
+        "assist": "EchoAssist",
+        "shadow": "EchoShadowBot",
+        "healer": "HealerBot"
+    },
+    "SystemAlignmentAgent": {
+        "assist": "LoopManager",
+        "shadow": "WatchtowerBot",
+        "healer": "HealerBot"
+    }
+}

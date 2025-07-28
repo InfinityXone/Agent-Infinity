@@ -1,0 +1,75 @@
+{
+    "route": "/login",
+    "style": "Match existing Infinity X One dark theme (Tailwind-based)",
+    "components": [
+        {
+            "type": "form",
+            "fields": [
+                {
+                    "label": "Username",
+                    "type": "text",
+                    "name": "username"
+                },
+                {
+                    "label": "Password",
+                    "type": "password",
+                    "name": "password"
+                },
+                {
+                    "type": "button",
+                    "text": "Sign In"
+                }
+            ]
+        },
+        {
+            "type": "separator",
+            "text": "or"
+        },
+        {
+            "type": "form",
+            "fields": [
+                {
+                    "label": "Email",
+                    "type": "email",
+                    "name": "email"
+                },
+                {
+                    "type": "button",
+                    "text": "Sign In with Email"
+                }
+            ]
+        },
+        {
+            "type": "form",
+            "fields": [
+                {
+                    "label": "Access Code",
+                    "type": "text",
+                    "name": "access_code"
+                },
+                {
+                    "type": "button",
+                    "text": "Enter Code"
+                }
+            ]
+        }
+    ],
+    "auth_logic": {
+        "backend": "Supabase Auth",
+        "roles": [
+            "owner",
+            "agent",
+            "investor",
+            "friend",
+            "observer"
+        ],
+        "redirects": {
+            "owner": "/codex",
+            "agent": "/nexus",
+            "investor": "/echo",
+            "friend": "/wallet",
+            "observer": "/proof"
+        },
+        "middleware": "Protect all routes unless valid session is active"
+    }
+}
