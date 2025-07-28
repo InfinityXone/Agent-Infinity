@@ -1,0 +1,28 @@
+{
+    "langchain_tools_expanded": [
+        {
+            "tool": "MarketInsightTool",
+            "func": "Fetches financial news sentiment and key metrics",
+            "description": "Used by Nexus to increase prediction confidence"
+        },
+        {
+            "tool": "BacktestTool",
+            "func": "Runs simple backtest logic against historical asset prices",
+            "description": "Used by FinSynapse to validate prediction accuracy"
+        },
+        {
+            "tool": "MemoryQueryTool",
+            "func": "Pulls relevant embeddings from Chroma vector memory",
+            "description": "Used by Codex and Nexus to enhance reasoning"
+        }
+    ],
+    "prediction_swarm": {
+        "swarm_id": "x1_pred_squad",
+        "bots": 12,
+        "tick_rate": "every 12 hrs",
+        "core loop": "Scrape > Vector Query > Sentiment Analysis > Predict > Validate > Log > Feedback > Mutate",
+        "mutation_trigger": "Confidence < 90%",
+        "leader_agent": "Nexus",
+        "log_target": "/proof + Supabase:prediction_logs"
+    }
+}

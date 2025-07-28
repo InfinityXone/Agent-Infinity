@@ -1,0 +1,14 @@
+{
+    "frequency": "weekly",
+    "day": "Monday",
+    "time": "00:00 UTC",
+    "target_table": "predictions_log",
+    "scoring_metric": "ROI accuracy",
+    "reward_allocation": {
+        "top_1": "1000 InfinityCoin",
+        "top_5": "500 InfinityCoin",
+        "top_10": "250 InfinityCoin"
+    },
+    "log_output": "/leaderboard + Supabase:system_logs",
+    "meta": "Auto-calculated from prediction logs, user sessions, and FinSynapse accuracy reports"
+}
