@@ -1,0 +1,28 @@
+{
+    "enhancements": [
+        {
+            "feature": "ROI Graphs on /proof",
+            "description": "Add visual charts showing predicted vs. actual results over time."
+        },
+        {
+            "feature": "Codex Syntax Helper + Live Preview",
+            "description": "Enable live code output window and syntax assistant in Codex panel."
+        },
+        {
+            "feature": "Agent Version Rollback",
+            "description": "Create rollback/snapshot manager for agents within Codex UI."
+        },
+        {
+            "feature": "Enhanced Share Incentives",
+            "description": "Visual incentive tracker on /wallet and /leaderboard for referral earnings."
+        },
+        {
+            "feature": "Try Prediction Button",
+            "description": "Allow user to test a live trade scenario from /nexus interface."
+        },
+        {
+            "feature": "Global Login + Role Control",
+            "description": "Lock all routes behind Supabase auth. Add role-based access layer and invite code handling."
+        }
+    ]
+}
