@@ -1,1 +1,0 @@
-rclone sync ./records remote:GenesisRecords

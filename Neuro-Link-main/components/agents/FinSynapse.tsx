@@ -1,1 +1,0 @@
-// FinSynapse UI, prediction summary
