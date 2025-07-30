@@ -1,4 +1,4 @@
-import { queryDeepInfra } from './providers/deepinfra';
+import { queryXAI } from './providers/xai'; // 👈 NEW
 
 export async function queryBrain({ provider, model, messages }) {
   switch (provider) {
@@ -12,6 +12,8 @@ export async function queryBrain({ provider, model, messages }) {
       return await queryOpenRouter({ model, messages });
     case 'deepinfra':
       return await queryDeepInfra({ model, messages });
+    case 'xai':
+      return await queryXAI({ model, messages }); // 👈 ADD XAI
     case 'local':
       return await queryLocalLLM({ model, messages });
     default:
