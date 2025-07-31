@@ -16,10 +16,7 @@ export function smartProviderSelector(prompt: string): { provider: string; model
 
   if (isStrategy && !isSpeed) {
     return { provider: 'openai', model: 'gpt-4' };
-  }
-
-  if (isChat) {
-    return { provider: 'xai', model: 'grok-2-1212' };
+  
   }
 
   if (isSpeed || length < 500) {
