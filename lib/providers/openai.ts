@@ -1,10 +1,20 @@
-import { Configuration, OpenAIApi } from 'openai';
+import OpenAI from 'openai';
 
-const openai = new OpenAIApi(
-  new Configuration({ apiKey: process.env.AI_OPENAI_API_KEY })
-);
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-export async function queryOpenAI({ model, messages }) {
-  const res = await openai.createChatCompletion({ model, messages });
-  return res.data.choices[0].message.content;
+type Message = {
+  role: 'user' | 'system' | 'assistant';
+  content: string;
+};
+
+export async function queryOpenAI({ model, messages }: { model: string; messages: Message[] }) {
+  const response = await openai.chat.completions.create({
+    model,
+    messages,
+    temperature: 0.7,
+  });
+
+  return response.choices?.[0]?.message?.content ?? '⚠️ No response from OpenAI.';
 }
