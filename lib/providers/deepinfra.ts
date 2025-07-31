@@ -1,18 +1,25 @@
-import { deepinfra } from '@ai-sdk/deepinfra';
-import { streamText } from 'ai';
+type Message = {
+  role: 'user' | 'system' | 'assistant';
+  content: string;
+};
 
-export async function queryDeepInfra({ model, messages }) {
-  const userPrompt = messages.map(m => m.content).join('\n');
-
-  const result = await streamText({
-    model: deepinfra(model), // e.g. "deepseek-ai/DeepSeek-R1-Turbo"
-    prompt: userPrompt
+export async function queryDeepInfra({ model, messages }: { model: string; messages: Message[] }) {
+  const response = await fetch('https://api.deepinfra.com/v1/openai/chat/completions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.DEEPINFRA_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model,
+      messages,
+      temperature: 0.7,
+    }),
   });
 
-  let fullText = '';
-  for await (const chunk of result.textStream) {
-    fullText += chunk;
-  }
-
-  return fullText || '⚠️ No response from DeepInfra.';
+  const data = await response.json();
+  return data?.choices?.[0]?.message?.content ?? '⚠️ No response from DeepInfra.';
 }
+
+
+
