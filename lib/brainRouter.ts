@@ -36,8 +36,6 @@ case 'groq':
       return await queryOpenRouter({ model, messages });
     case 'deepinfra':
       return await queryDeepInfra({ model, messages });
-    case 'xai':
-      return await queryXAI({ model, messages }); // 👈 ADD XAI
     case 'local':
       return await queryLocalLLM({ model, messages });
     default:
